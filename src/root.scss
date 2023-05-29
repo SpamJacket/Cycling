@@ -1,0 +1,95 @@
+// Переменные шрифтов
+$fontFamily: 'Inter', 'Arial', sans-serif;
+$bold: 700;
+$semiBold: 600;
+$medium: 500;
+$regular: 400;
+
+// Отступы
+$sectionMargin: 120px;
+$sectionMarginMobile: 80px;
+$sectionPadding: 120px;
+$sectionPadding: 18px;
+
+$titleMarginBottom: 50px;
+$titleMarginBottomMobile: 40px;
+
+$cardPadding: 20px;
+$cardPadding: 15px;
+
+//Цвета
+$backgroundColor: #F4F4F4;
+$backgroundColorFooter: #EFEFEF;
+
+$mainTextColor: #151515;
+$secondTextColor: #222222;
+
+$borderColor: #D7D4D4;
+$borderColorMobile: #E3E3E3;
+$inputBorder: #C7C7C7;
+
+$sliderBottonColor: #EBEBEB;
+$bottonColor: #24B47E;
+
+$white: #FFFFFF;
+$copyRightColor: #CFCFCF;
+
+// Миксин флекса
+@mixin flex($flex-direction, $justify-content, $align-items) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+// Шаблоны шрифтов
+%mainTitleH2 {
+  line-height: 60px;
+  letter-spacing: -0.5px;
+  font: {
+    family: $fontFamily;
+    width: $bold;
+    size: calc(32px + 22 * (100vw / 1440));
+  }
+
+  @media screen and (max-width: 768px) {
+    line-height: 40px;
+    font-size: calc(32px + (22 * 1.4) * ((100vw - 320px) / 1440));
+  }
+}
+
+%mainTitleH3 {
+  line-height: 44px;
+  letter-spacing: -0.5px;
+  font: {
+    family: $fontFamily;
+    width: $semi-bold;
+    size: calc(23px + 11 * (100vw / 1440));
+  }
+
+  @media screen and (max-width: 768px) {
+    line-height: 29px;
+    font-size: calc(23px + (11 * 1.4) * ((100vw - 320px) / 1440));
+  }
+}
+
+%mainTitleH4 {
+  line-height: 32px;
+  font: {
+    family: $fontFamily;
+    width: $semi-bold;
+    size: 24px;
+  }
+}
+
+%mainTextStyle {
+  line-height: 28px;
+  font: $fontFamily;
+  width: $regular;
+  size: calc(12px + 6 * (100vw / 1440));
+
+  @media screen and (max-width: 768px) {
+    line-height: 18px;
+    font-size: calc(12px + (6 * 1.4) * ((100vw - 320px) / 1440));
+  }
+}
