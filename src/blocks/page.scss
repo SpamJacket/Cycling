@@ -1,10 +1,9 @@
 .page {
   box-sizing: border-box;
   width: 100%;
-  font-family: $fontFamily;
   color: $mainTextColor;
   background-color: $backgroundColor;
-  @include flex(column, center, center);
+  @include flex(column, flex-start, center);
   min-width: 300px;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;

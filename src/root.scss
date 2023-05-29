@@ -9,7 +9,7 @@ $regular: 400;
 $sectionMargin: 120px;
 $sectionMarginMobile: 80px;
 $sectionPadding: 120px;
-$sectionPadding: 18px;
+$sectionPaddingMobile: 18px;
 
 $titleMarginBottom: 50px;
 $titleMarginBottomMobile: 40px;
@@ -63,7 +63,7 @@ $copyRightColor: #CFCFCF;
   letter-spacing: -0.5px;
   font: {
     family: $fontFamily;
-    width: $semi-bold;
+    width: $semiBold;
     size: calc(23px + 11 * (100vw / 1440));
   }
 
@@ -77,7 +77,7 @@ $copyRightColor: #CFCFCF;
   line-height: 32px;
   font: {
     family: $fontFamily;
-    width: $semi-bold;
+    width: $semiBold;
     size: 24px;
   }
 }
