@@ -11,15 +11,16 @@ $sectionMarginMobile: 80px;
 $sectionPadding: 120px;
 $sectionPaddingMobile: 18px;
 
-$titleMarginBottom: 50px;
-$titleMarginBottomMobile: 40px;
+$titlePaddingBottom: 50px;
+$titlePaddingBottomMobile: 40px;
 
 $cardPadding: 20px;
-$cardPadding: 15px;
+$cardPaddingMobile: 15px;
 
 //Цвета
 $backgroundColor: #F4F4F4;
 $backgroundColorFooter: #EFEFEF;
+$backgroundColorCard: #C4C4C4;
 
 $mainTextColor: #151515;
 $secondTextColor: #222222;
@@ -30,6 +31,7 @@ $inputBorder: #C7C7C7;
 
 $sliderBottonColor: #EBEBEB;
 $bottonColor: #24B47E;
+$bottonColorDark: #319E75;
 
 $white: #FFFFFF;
 $copyRightColor: #CFCFCF;
@@ -44,26 +46,30 @@ $copyRightColor: #CFCFCF;
 
 // Шаблоны шрифтов
 %mainTitleH2 {
+  margin: 0;
+  max-width: 460px;
   line-height: 60px;
   letter-spacing: -0.5px;
   font: {
     family: $fontFamily;
-    width: $bold;
-    size: calc(32px + 22 * (100vw / 1440));
+    weight: $bold;
+    size: calc(32px + 23 * (100vw / 1440));
   }
 
   @media screen and (max-width: 768px) {
     line-height: 40px;
-    font-size: calc(32px + (22 * 1.4) * ((100vw - 320px) / 1440));
+    font-size: calc(32px + (23 * 1.4) * ((100vw - 320px) / 1440));
   }
 }
 
 %mainTitleH3 {
+  margin: 0;
+  max-width: 460px;
   line-height: 44px;
   letter-spacing: -0.5px;
   font: {
     family: $fontFamily;
-    width: $semiBold;
+    weight: $semiBold;
     size: calc(23px + 11 * (100vw / 1440));
   }
 
@@ -74,19 +80,26 @@ $copyRightColor: #CFCFCF;
 }
 
 %mainTitleH4 {
+  margin: 0;
   line-height: 32px;
   font: {
     family: $fontFamily;
-    width: $semiBold;
+    weight: $semiBold;
     size: 24px;
   }
 }
 
-%mainTextStyle {
+%paragraphTextStyle {
+  margin: 0;
+  opacity: .7;
+  color: $secondTextColor;
+  max-width: 460px;
   line-height: 28px;
-  font: $fontFamily;
-  width: $regular;
-  size: calc(12px + 6 * (100vw / 1440));
+  font: {
+    family: $fontFamily;
+    weight: $regular;
+    size: calc(12px + 6 * (100vw / 1440));
+  }
 
   @media screen and (max-width: 768px) {
     line-height: 18px;

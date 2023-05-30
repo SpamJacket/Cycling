@@ -1,6 +1,8 @@
 .page {
   box-sizing: border-box;
+  max-width: 1440px;
   width: 100%;
+  margin: 0 auto;
   color: $mainTextColor;
   background-color: $backgroundColor;
   @include flex(column, flex-start, center);
@@ -10,4 +12,5 @@
   -moz-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 300vh;
 }

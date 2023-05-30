@@ -1,7 +1,10 @@
 .header {
   position: fixed;
+  z-index: 2;
+  background-color: $backgroundColor;
   box-sizing: border-box;
   @include flex(row, flex-end, flex-start);
+  max-width: 1440px;
   width: 100%;
   padding: 28px $sectionPadding;
 
@@ -32,7 +35,7 @@
     transition: opacity .3s linear;
 
     &:hover {
-      cursor: url("../images/pointer.svg"), default;
+      cursor: url("../images/icons/pointer.svg"), default;
       opacity: .75;
     }
   }
@@ -53,7 +56,7 @@
       }
       
       &:hover {
-        cursor: url("../images/pointer.svg"), pointer;
+        cursor: url("../images/icons/pointer.svg"), pointer;
         
         .header__menu-line {
           opacity: .75;
