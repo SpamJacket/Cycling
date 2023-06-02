@@ -7,6 +7,7 @@
   max-width: 1440px;
   width: 100%;
   padding: 28px $sectionPadding;
+  box-shadow: -20px 60px 200px rgba(0, 0, 0, 0.2);
 
   @media screen and (max-width: 640px) {
     padding: 25px $sectionPaddingMobile;

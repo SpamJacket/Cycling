@@ -1,18 +1,16 @@
 .description {
   position: relative;
   box-sizing: border-box;
-  width: 100%;
-  min-height: calc(856 / 1440 * 100vw);
   margin-top: 74px;
   padding-top: 20px;
-  background-image: url("../images/description/forest.png");
-  background-repeat: no-repeat;
-  background-size: calc(610 / 1440 * 100vw) calc(836 / 1440 * 100vw);
-  background-position: right 20px;
   padding-left: $sectionPadding;
+  aspect-ratio: 1440 / 856;
+  background: url("../images/description/forest.png") top 20px right no-repeat;
+  background-size: 610px 836px;
 
   @media screen and (max-width: 1439px) {
     padding-left: 80px;
+    background-size: auto calc(836 / 856 * 100%);
   }
 
   @media screen and (max-width: 1023px) {
@@ -20,15 +18,22 @@
   }
 
   @media screen and (max-width: 767px) {
-    padding: 0 40px;
-    min-height: calc(746 / 320 * 100vw);
-    background-size: calc(254 / 320 * 100vw) calc(348 / 320 * 100vw);
-    background-position: top 160px right 40px;
-    @include flex(column, flex-start, flex-start);
+    padding: 40px 40px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px 1fr min-content 46px;
+    row-gap: $titlePaddingBottomMobile;
+    aspect-ratio: unset;
+    min-height: 746px;
+    background-size: auto 446px;
+    background-position: top 120px right 40px;
   }
 
-  @media screen and (max-width: 425px) {
-    padding: 0 $sectionPaddingMobile;
+  @media screen and (max-width: 458px) {
+    padding: 40px $sectionPaddingMobile 0;
+    grid-template-rows: 80px 1fr min-content 46px;
+    min-height: 706px;
+    background-size: auto 348px;
     background-position: top 160px right 18px;
   }
 
@@ -46,7 +51,9 @@
     }
 
     @media screen and (max-width: 767px) {
-      padding: $titlePaddingBottomMobile 0 calc((348 / 320 * 100vw) + 80px);
+      max-width: 460px;
+      width: 100%;
+      padding: 0;
     }
   }
 
@@ -64,7 +71,9 @@
     }
 
     @media screen and (max-width: 767px) {
-      max-width: unset;
+      max-width: 460px;
+      padding: 0;
+      grid-row-start: 3;
     }
   }
 
@@ -83,21 +92,25 @@
 
     @media screen and (max-width: 767px) {
       padding: 13px 100px;
-      align-self: center;
+      justify-self: center;
+      width: fit-content;
+      grid-row-start: 4;
     }
 
     &::after {
       content: "Подробнее";
       position: relative;
-      z-index: 1;
       color: $white;
-      text-align: center;
       line-height: 18px;
       letter-spacing: 1px;
       font: {
         family: $fontFamily;
         weight: $semiBold;
-        size: calc(13px + 1 * (100vw / 1440));
+        size: 14px;
+      }
+
+      @media screen and (max-width: 1439px) {
+        font-size: calc(13px + 1 * (100vw / 1440));
       }
 
       @media screen and (max-width: 767px) {
@@ -138,7 +151,7 @@
       font: {
         family: $fontFamily;
         weight: $regular;
-        size: calc(18px * (100vw / 1440px));
+        size: 18px;
       }
 
       @media screen and (max-width: 1439px) {
@@ -158,36 +171,48 @@
     }
 
     &-container {
-      box-sizing: border-box;
-      width: calc(810 / 1440 * 100vw);
-      height: calc(430 / 1440 * 100vw);
       position: absolute;
-      top: calc(347 / 1440 * 100vw);
       right: 0;
+      bottom: 79px;
+      max-width: 810px;
+      width: 100%;
+      min-height: 430px;
+
+      @media screen and (max-width: 1439px) {
+        bottom: calc(79 / 856 * 100%);
+        max-width: calc(810 / 1440 * 100%);
+        min-height: calc(430 / 856 * 100%);
+      }
 
       @media screen and (max-width: 767px) {
-        width: calc(284 / 320 * 100vw);
-        height: calc(180 / 320 * 100vw);
-        top: calc(240 / 320 * 100vw);
-        right: 40px;
+        bottom: calc((37 / 746 * 100%) + 180px);
+        max-width: calc(260 / 320 * 100%);
+        min-height: calc(300 / 746 * 100%);
+      }
+
+      @media screen and (max-width: 560px) {
+        max-width: calc(302 / 320 * 100%);
       }
 
       @media screen and (max-width: 425px) {
-        top: calc(311 / 320 * 100vw);
-        right: 18px;
+        bottom: calc((37 / 746 * 100%) + 198px);
       }
     }
 
     &-fix {
       position: sticky;
-      top: calc(347 / 1440 * 100vw);
+      top: 347px;
       box-sizing: border-box;
       background-color: $backgroundColor;
       box-shadow: -20px 60px 220px rgba(0, 0, 0, 0.2);
-      width: calc(440 / 1440 * 100vw);
-      height: calc(300 / 1440 * 100vw);
       padding: $cardPadding 50px;
       border-radius: 20px;
+      width: 440px;
+
+      @media screen and (max-width: 1439px) {
+        top: calc(347 / 856 * 100%);
+        width: calc(440 / 1440 * 100vw);
+      }
 
       @media screen and (max-width: 1023px) {
         padding: 15px 32px;
@@ -195,20 +220,17 @@
 
       @media screen and (max-width: 767px) {
         padding: 10px 26px;
-        width: calc(234 / 320 * 100vw);
-        height: calc(160 / 320 * 100vw);
-        top: calc(240 / 320 * 100vw);
+        width: 300px;
       }
 
       @media screen and (max-width: 425px) {
-        top: calc(311 / 320 * 100vw);
+        width: 234px;
       }
     }
 
     &-image {
-      display: inline-block;
+      display: block;
       width: 100%;
-      height: 100%;
     }
   }
 }

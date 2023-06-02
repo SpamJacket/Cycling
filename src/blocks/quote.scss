@@ -1,0 +1,91 @@
+.quote {
+  box-sizing: border-box;
+  padding: 0 $sectionPadding;
+  margin-top: $sectionMargin;
+  display: grid;
+  grid-template-columns: minmax(284px, 650px) minmax(250px, 460px);
+  grid-template-rows: repeat(2 1fr);
+  grid-template-areas: 
+    "image text"
+    "image author";
+  column-gap: 80px;
+
+  @media screen and (max-width: 1439px) {
+    padding: 0 80px;
+  }
+
+  @media screen and (max-width: 1023px) {
+    padding: 0 60px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 20px 40px 0;
+    margin-top: $sectionMarginMobile;
+    border-top: 1px $borderColorMobile solid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr repeat(2, min-content);
+    grid-template-areas: 
+    "image"
+    "text"
+    "author";
+    row-gap: 40px;
+  }
+
+  @media screen and (max-width: 425px) {
+    padding: 20px 18px 0;
+  }
+
+  &__image {
+    grid-area: image;
+    width: 100%;
+  }
+
+  &__text {
+    grid-area: text;
+    @extend %mainTitleH3;
+  }
+
+  &__author {
+    grid-area: author;
+    align-self: flex-end;
+  }
+  
+  &__name {
+    margin: 0 0 6px;
+    line-height: 32px;
+    font: {
+      family: $fontFamily;
+      weight: $medium;
+      size: 20px;
+    }
+
+    @media screen and (max-width: 1439px) {
+      font-size: calc(14px + 6 * (100vw / 1440));
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: 4px;
+      line-height: 22px;
+      font-size: calc(14px + (6 * 1.4) * ((100vw - 320px) / 1440));
+    }
+  }
+
+  &__about {
+    margin: 0;
+    line-height: 28px;
+    font: {
+      family: $fontFamily;
+      weight: $regular;
+      size: 16px;
+    }
+
+    @media screen and (max-width: 1439px) {
+      font-size: calc(10px + 6 * (100vw / 1440));
+    }
+
+    @media screen and (max-width: 768px) {
+      line-height: 16px;
+      font-size: calc(10px + (6 * 1.4) * ((100vw - 320px) / 1440));
+    }
+  }
+}
