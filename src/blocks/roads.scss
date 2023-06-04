@@ -1,0 +1,168 @@
+.roads {
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-top: $sectionMargin;
+  padding-left: $sectionPadding;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px repeat(2, min-content) 50px;
+  grid-template-areas: 
+    "title"
+    "subtitle"
+    "slider"
+    "buttons";
+  row-gap: 50px;
+
+  @media screen and (max-width: 1439px) {
+    padding-left: 80px;
+  }
+
+  @media screen and (max-width: 1023px) {
+    padding-left: 60px;
+  }
+
+  @media screen and (max-width: 770px) {
+    padding: 0 40px;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin: $sectionMarginMobile 40px 0;
+    padding: 40px 0 0;
+    border-top: 1px $borderColorMobile solid;
+    grid-template-columns: repeat(2, minmax(142px, 343px));
+    grid-template-rows: 40px repeat(2, min-content);
+    grid-template-areas: 
+      "title buttons"
+      "slider slider"
+      "subtitle subtitle";
+    row-gap: 40px;
+  }
+
+  @media screen and (max-width: 425px) {
+    margin: $sectionMarginMobile 18px 0;
+  }
+
+  &__title {
+    @extend %mainTitleH2;
+    grid-area: title;
+  }
+
+  &__subtitle {
+    @extend %paragraphTextStyle;
+    grid-area: subtitle;
+    padding-bottom: 30px;
+
+    @media screen and (max-width: 767px) {
+      padding: 0;
+    }
+  }
+
+  &__slider {
+    grid-area: slider;
+    position: relative;
+    display: flex;
+    column-gap: 40px;
+    width: calc(650px * 4 + 120px);
+
+    @media screen and (max-width: 1023px) {
+      width: calc(500px * 4 + 120px);
+    }
+
+    @media screen and (max-width: 1023px) {
+      width: calc((100vw - 80px) * 4 + 120px);
+    }
+
+    @media screen and (max-width: 425px) {
+      width: calc((100vw - 36px) * 4 + 54px);
+      column-gap: 18px;
+    }
+  }
+
+  &__image {
+    width: 650px;
+
+    @media screen and (max-width: 1023px) {
+      width: 500px;
+    }
+
+    @media screen and (max-width: 770px) {
+      width: calc(100vw - 80px);
+    }
+
+    @media screen and (max-width: 425px) {
+      width: calc(100vw - 36px);
+    }
+  }
+
+  &__gradient {
+    position: absolute;
+    left: 0;
+    bottom: 16px;
+    background: url("../images/icons/gradient.svg") left no-repeat;
+    background-color: transparent;
+    width: 100px;
+    height: 40px;
+    background-size: cover;
+
+    &::after {
+      content: "";
+      display: block;
+      background: url("../images/icons/highway.svg") bottom no-repeat;
+      background-size: 50px;
+      position: relative;
+      top: 12px;
+      left: 16px;
+      width: 50px;
+      height: 16px;
+    }
+
+    @media screen and (max-width: 425px) {
+      width: 70px;
+      height: 28px;
+      bottom: 14px;
+
+      &::after {
+        background-size: 35px;
+        top: 8px;
+        left: 11px;
+        width: 35px;
+        height: 12px;
+      }
+    }
+  }
+
+  &__buttons {
+    grid-area: buttons;
+    display: flex;
+    column-gap: 20px;
+
+    @media screen and (max-width: 767px) {
+      justify-content: flex-end;
+      align-items: center;
+      column-gap: 10px;
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: url("../images/icons/arrow.svg") top 17px left 20px no-repeat;
+    background-size: 7px 16px;
+    background-color: $sliderBottonColor;
+
+    &_type_next {
+      rotate: 180deg;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 24px;
+      height: 24px;
+      background-position: top 7px left 9px;
+      background-size: 4.5px 10px;
+    }
+  }
+}

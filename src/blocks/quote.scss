@@ -19,8 +19,8 @@
   }
 
   @media screen and (max-width: 767px) {
-    padding: 20px 40px 0;
-    margin-top: $sectionMarginMobile;
+    padding: 20px 0 0;
+    margin: $sectionMarginMobile 40px 0;
     border-top: 1px $borderColorMobile solid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr repeat(2, min-content);
@@ -32,7 +32,7 @@
   }
 
   @media screen and (max-width: 425px) {
-    padding: 20px 18px 0;
+    margin: $sectionMarginMobile 18px 0;
   }
 
   &__image {
