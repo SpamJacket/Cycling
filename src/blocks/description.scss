@@ -3,22 +3,16 @@
   box-sizing: border-box;
   margin-top: 74px;
   padding-top: 20px;
-  padding-left: $sectionPadding;
-  aspect-ratio: 1440 / 856;
+  aspect-ratio: 1320 / 856;
   background: url("../images/description/forest.png") top 20px right no-repeat;
   background-size: 610px 836px;
 
   @media screen and (max-width: 1439px) {
-    padding-left: 80px;
     background-size: auto calc(836 / 856 * 100%);
   }
 
-  @media screen and (max-width: 1023px) {
-    padding-left: 60px;
-  }
-
   @media screen and (max-width: 767px) {
-    padding: 40px 40px 0;
+    padding: 40px 40px 0 0;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 40px 1fr min-content 46px;
@@ -30,7 +24,7 @@
   }
 
   @media screen and (max-width: 458px) {
-    padding: 40px $sectionPaddingMobile 0;
+    padding: 40px $sectionPaddingMobile 0 0;
     grid-template-rows: 80px 1fr min-content 46px;
     min-height: 706px;
     background-size: auto 348px;
@@ -180,18 +174,18 @@
 
       @media screen and (max-width: 1439px) {
         bottom: calc(79 / 856 * 100%);
-        max-width: calc(810 / 1440 * 100%);
+        max-width: calc(810 / 1320 * 100%);
         min-height: calc(430 / 856 * 100%);
       }
 
       @media screen and (max-width: 767px) {
         bottom: calc((37 / 746 * 100%) + 180px);
-        max-width: calc(260 / 320 * 100%);
+        max-width: calc(260 / 302 * 100%);
         min-height: calc(300 / 746 * 100%);
       }
 
       @media screen and (max-width: 560px) {
-        max-width: calc(302 / 320 * 100%);
+        max-width: 100%;
       }
 
       @media screen and (max-width: 425px) {

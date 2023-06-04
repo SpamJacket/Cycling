@@ -1,4 +1,21 @@
 .content {
   width: 100%;
   box-sizing: border-box;
+  padding-left: $sectionPadding;
+
+  @media screen and (max-width: 1439px) {
+    padding-left: 80px;
+  }
+
+  @media screen and (max-width: 1023px) {
+    padding-left: 60px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-left: 40px;
+  }
+
+  @media screen and (max-width: 425px) {
+    padding-left: $sectionPaddingMobile;
+  }
 }

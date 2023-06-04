@@ -1,8 +1,8 @@
 .roads {
   box-sizing: border-box;
+  position: relative;
   overflow: hidden;
   margin-top: $sectionMargin;
-  padding-left: $sectionPadding;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 60px repeat(2, min-content) 50px;
@@ -13,20 +13,12 @@
     "buttons";
   row-gap: 50px;
 
-  @media screen and (max-width: 1439px) {
-    padding-left: 80px;
-  }
-
-  @media screen and (max-width: 1023px) {
-    padding-left: 60px;
-  }
-
   @media screen and (max-width: 770px) {
-    padding: 0 40px;
+    padding-right: 40px;
   }
 
   @media screen and (max-width: 767px) {
-    margin: $sectionMarginMobile 40px 0;
+    margin: $sectionMarginMobile 40px 0 0;
     padding: 40px 0 0;
     border-top: 1px $borderColorMobile solid;
     grid-template-columns: repeat(2, minmax(142px, 343px));
@@ -39,7 +31,7 @@
   }
 
   @media screen and (max-width: 425px) {
-    margin: $sectionMarginMobile 18px 0;
+    margin: $sectionMarginMobile 18px 0 0;
   }
 
   &__title {
@@ -58,23 +50,26 @@
   }
 
   &__slider {
+    --image-number: 1;
     grid-area: slider;
     position: relative;
     display: flex;
     column-gap: 40px;
-    width: calc(650px * 4 + 120px);
+    width: 100%;
+    transform: translateX(calc((-1 * var(--image-number)) * (650px + 40px)));
+    transition: transform .5s linear;
 
     @media screen and (max-width: 1023px) {
-      width: calc(500px * 4 + 120px);
+      transform: translateX(calc((-1 * var(--image-number)) * (500px + 40px)));
     }
 
-    @media screen and (max-width: 1023px) {
-      width: calc((100vw - 80px) * 4 + 120px);
+    @media screen and (max-width: 767px) {
+      transform: translateX(calc((-1 * var(--image-number)) * ((100vw - 80px) + 40px)));
     }
 
     @media screen and (max-width: 425px) {
-      width: calc((100vw - 36px) * 4 + 54px);
       column-gap: 18px;
+      transform: translateX(calc((-1 * var(--image-number)) * ((100vw - 36px) + 18px)));
     }
   }
 
@@ -85,7 +80,7 @@
       width: 500px;
     }
 
-    @media screen and (max-width: 770px) {
+    @media screen and (max-width: 767px) {
       width: calc(100vw - 80px);
     }
 
@@ -95,9 +90,11 @@
   }
 
   &__gradient {
+    --gradient-url: url("../images/icons/highway.svg");
+    --gradient-size: 50px;
     position: absolute;
     left: 0;
-    bottom: 16px;
+    bottom: 116px;
     background: url("../images/icons/gradient.svg") left no-repeat;
     background-color: transparent;
     width: 100px;
@@ -107,27 +104,44 @@
     &::after {
       content: "";
       display: block;
-      background: url("../images/icons/highway.svg") bottom no-repeat;
-      background-size: 50px;
+      background: var(--gradient-url) bottom no-repeat;
+      background-size: var(--gradient-size);
       position: relative;
       top: 12px;
       left: 16px;
       width: 50px;
       height: 16px;
+      transition: background-size .25s linear;
+    }
+
+    @media screen and (max-width: 767px) {
+      bottom: 126px;
+    }
+
+    @media screen and (max-width: 659px) {
+      bottom: 110px;
+    }
+
+    @media screen and (max-width: 533px) {
+      bottom: 126px;
     }
 
     @media screen and (max-width: 425px) {
+      --gradient-size-mobile: 35px;
       width: 70px;
       height: 28px;
-      bottom: 14px;
 
       &::after {
-        background-size: 35px;
+        background-size: var(--gradient-size-mobile);
         top: 8px;
         left: 11px;
         width: 35px;
         height: 12px;
       }
+    }
+
+    @media screen and (max-width: 353px) {
+      bottom: 144px;
     }
   }
 
@@ -144,6 +158,9 @@
   }
 
   &__button {
+    cursor: url("../images/icons/pointer.svg"), pointer;
+    opacity: 1;
+    transition: opacity .3s ease-out;
     display: block;
     width: 50px;
     height: 50px;
@@ -163,6 +180,10 @@
       height: 24px;
       background-position: top 7px left 9px;
       background-size: 4.5px 10px;
+    }
+
+    &:hover {
+      opacity: .6;
     }
   }
 }
